@@ -9,5 +9,6 @@
 # $_HOME
 
 steps:
-  # Update submodules
   - name: 'gcr.io/cloud-builders/docker'
+options:
+  logging: CLOUD_LOGGING_ONLY
