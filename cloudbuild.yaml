@@ -11,8 +11,3 @@
 steps:
   # Update submodules
   - name: 'gcr.io/cloud-builders/docker'
-    entrypoint: 'bash'
-    args:
-        - -c
-        - |
-          docker build -v ".application_default_credentials.json":/gcp/credentials.json:ro --env GOOGLE_APPLICATION_CREDENTIALS=/gcp/credentials.json
