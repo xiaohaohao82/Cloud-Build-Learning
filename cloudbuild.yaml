@@ -26,7 +26,7 @@ steps:
       - -c
       - |
         docker build -t europe-west2-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/$_IMAGE_NAME:$COMMIT_SHA . &&
-        docker push europe-west2-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/$_IMAGE_NAME:$COMMIT_SHA
+        docker push     europe-west2-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/$_IMAGE_NAME:$COMMIT_SHA
     # cleanup existing containers & redeploy with new container
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
@@ -38,8 +38,6 @@ steps:
       - --zone
       - $_ZONE
       - --
-      - docker container stop $$(docker container ls -aq) &&
-      - docker container rm $$(docker container ls -aq) &&
-      - docker run -d --restart=unless-stopped -p 80:80 -p 443:443 -v $_HOME/.caddy:/root/.caddy gcr.io/$PROJECT_ID/$_IMAGE_NAME:$COMMIT_SHA
+      - docker run -d --restart=unless-stopped -p 80:80 -p 443:443 -v $_HOME/.caddy:/root/.caddy europe-west2-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/$_IMAGE_NAME:$COMMIT_SHA
 options:
   logging: CLOUD_LOGGING_ONLY
