@@ -38,8 +38,6 @@ steps:
       - --zone
       - $_ZONE
       - --
-      - docker stop $(docker ps -aq) &&
-      - docker rm $(docker ps -aq) &&
       - docker run -d --restart=unless-stopped -p 85:85 -p 543:543 -v $_HOME/.caddy:/root/.caddy europe-west2-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/$_IMAGE_NAME
 options:
   logging: CLOUD_LOGGING_ONLY
