@@ -38,6 +38,6 @@ steps:
       - --zone
       - $_ZONE
       - --
-      - docker run -d --restart=unless-stopped -p 85:85 -p 543:543 -v $_HOME/.caddy:/root/.caddy europe-west2-docker.pkg.dev/dataflow-cicd-434314/avalanche-dataflow/avalanche-data-flow:1114544082ed204b4f8f2fbc4edaaf9d8f6fded7
+      - docker run -d --restart=unless-stopped -p 85:85 -p 543:543 -v $_HOME/.caddy:/root/.caddy $(docker images | awk '{print $1}' | awk 'NR==2')
 options:
   logging: CLOUD_LOGGING_ONLY
