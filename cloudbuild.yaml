@@ -38,6 +38,6 @@ steps:
       - --zone
       - $_ZONE
       - --
-      - docker run -d --restart=unless-stopped -p 80:80 -p 443:443 -v $_HOME/.caddy:/root/.caddy europe-west2-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/$_IMAGE_NAME:$COMMIT_SHA
+      - docker run -d --restart=unless-stopped -p 80:80 -p 443:443 -v $_HOME/.caddy:/root/.caddy europe-west2-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/$_IMAGE_NAME
 options:
   logging: CLOUD_LOGGING_ONLY
