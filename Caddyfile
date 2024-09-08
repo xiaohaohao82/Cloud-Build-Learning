@@ -12,7 +12,9 @@
     errors stderr
 }
 
-
+:86 {
+	respond "Hello World"
+}
 
 ##############################
 #
