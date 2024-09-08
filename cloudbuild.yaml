@@ -32,6 +32,7 @@ steps:
     args:
       - auth
       - print-access-token
+      - -c
       - |
       - docker login -u oauth2accesstoken --password-stdin europe-west1-docker.pkg.dev
 
