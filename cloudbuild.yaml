@@ -31,10 +31,7 @@ steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - auth
-      - print-access-token
-      - -c
-      - |
-      - docker login -u oauth2accesstoken --password-stdin europe-west1-docker.pkg.dev
+      - print-access-token | docker login -u oauth2accesstoken --password-stdin europe-west1-docker.pkg.dev
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
