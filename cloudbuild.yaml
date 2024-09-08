@@ -30,6 +30,11 @@ steps:
     # cleanup existing containers & redeploy with new container
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
+      - auth
+      - print-access-token
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
       - compute
       - ssh
       - $_SSH_STRING
