@@ -32,7 +32,7 @@ steps:
     args:
       - auth
       - print-access-token
-      - --
+      - |
       - docker login -u oauth2accesstoken --password-stdin europe-west1-docker.pkg.dev
 
   - name: 'gcr.io/cloud-builders/gcloud'
