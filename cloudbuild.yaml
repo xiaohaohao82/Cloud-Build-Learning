@@ -29,7 +29,11 @@ steps:
         docker push europe-west1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/$_IMAGE_NAME:$COMMIT_SHA
     # cleanup existing containers & redeploy with new container
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['auth', 'print-access-token', '|', 'docker login -u oauth2accesstoken --password-stdin europe-west1-docker.pkg.dev']
+    entrypoint: 'bash'
+    args:
+      - -c
+      - |
+      - gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin europe-west1-docker.pkg.dev
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
