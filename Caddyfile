@@ -8,8 +8,7 @@
 ##############################
 
 :80 {
-    log stdout
-    errors stderr
+    respond "Hello World"
 }
 
 :86 {
