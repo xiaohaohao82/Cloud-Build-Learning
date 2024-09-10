@@ -45,6 +45,6 @@ steps:
       - --zone
       - $_ZONE
       - --
-      - docker run -d --platform=linux/amd64 --restart=unless-stopped -p 8080:80 -p 4443:443 -v $_HOME/.caddy:/root/.caddy europe-west1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/$_IMAGE_NAME:$COMMIT_SHA
+      - docker run -d --platform=linux/amd64 --restart=unless-stopped  -p 80:80/tcp europe-west1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/$_IMAGE_NAME:$COMMIT_SHA
 options:
   logging: CLOUD_LOGGING_ONLY
